@@ -42,6 +42,7 @@ int main(int argc, char* argv[])
 
         MPI_Send(a, 1, even_odd_rows, RECEIVER_B, 1, MPI_COMM_WORLD);
         MPI_Send(&a[1][0], 1, even_odd_rows, RECEIVER_C, 2, MPI_COMM_WORLD);
+		MPI_Type_free(&even_odd_rows);
         break;
     case RECEIVER_B:
         int b[N / 2][N];
